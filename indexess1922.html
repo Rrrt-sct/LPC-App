@@ -16,12 +16,7 @@
       margin-bottom: 5px;
     }
     #phoneticText {
-<<<<<<< HEAD
-      font-styl
-        e: italic;
-=======
       font-style: italic;
->>>>>>> 1e1b3e6 (Initial commit)
       color: gray;
       margin-bottom: 10px;
     }
@@ -41,12 +36,42 @@
     }
   </style>
 </head>	
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+button {
+  z-index: 1000;
+}
+  @media print {
+  body * {
+    display: none !important;
+  }
+
+  .printable, .printable * {
+    display: block !important;
+  }
+
+  .printable {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+</style>	
 <!-- Bouton d'impression -->
-<button onclick="window.print()" style="position: fixed; top: 10px; right: 10px; padding: 10px 15px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+<button onclick="window.print()" style="position: fixed; top: 10px; right: 10px; z-index: 1000; padding: 10px 15px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
   🖨️ Imprimer
 </button>
 <body>
-
+<div class="printable">
+  <div id="originalText"></div>
+  <div id="phoneticText" contenteditable="true" style="border: 1px solid #ccc; padding: 5px;"></div>
+  <div id="imageLine"></div>
+</div>
   <div id="inputArea">
     <h2>Texte à transcrire</h2>
     <textarea id="userInput" rows="4" cols="80" placeholder="Saisissez votre texte ici..."></textarea><br>
@@ -164,7 +189,6 @@
   let i = 0;
   const maxPhonemeLength = 3;
 
-
     while (i < phonemes.length) {
       let match = false;
       for (let len = maxPhonemeLength; len > 0; len--) {
@@ -197,7 +221,7 @@
       container.style.margin = "4px";
 
       const imageElement = document.createElement("img");
-      imageElement.src = `images/${img}`;
+      imageElement.src = `http://127.0.0.1:5000/images/${img}`;
       imageElement.style.height = "100px";
 
       const phonemeText = document.createElement("span");

@@ -16,12 +16,7 @@
       margin-bottom: 5px;
     }
     #phoneticText {
-<<<<<<< HEAD
-      font-styl
-        e: italic;
-=======
       font-style: italic;
->>>>>>> 1e1b3e6 (Initial commit)
       color: gray;
       margin-bottom: 10px;
     }
@@ -149,21 +144,15 @@
     const phoneticText = document.getElementById("phoneticText").innerText;
     if (!phoneticText.trim()) return;
 
-    const phonemes = phoneticText.replace(/[\s-]/g, "").replace(/ː/g, "").replace(/ʁ/g, "ʀ");
-
+    const phonemes = phoneticText.replace(/[\s-]/g, "").replace(/ː/g, "");
     afficherImagesDepuisPhonemes(phonemes);
   }
 
   function afficherImagesDepuisPhonemes(phonemes) {
-  // Normalisation des phonèmes (ʁ traité comme r)
-  phonemes = phonemes.replace(/ʁ/g, "ʀ");
-
-
-  const resultImages = [];
-  const resultPhonemes = [];
-  let i = 0;
-  const maxPhonemeLength = 3;
-
+    const resultImages = [];
+    const resultPhonemes = [];
+    let i = 0;
+    const maxPhonemeLength = 3;
 
     while (i < phonemes.length) {
       let match = false;
@@ -197,7 +186,7 @@
       container.style.margin = "4px";
 
       const imageElement = document.createElement("img");
-      imageElement.src = `images/${img}`;
+      imageElement.src = `http://127.0.0.1:5000/images/${img}`;
       imageElement.style.height = "100px";
 
       const phonemeText = document.createElement("span");
