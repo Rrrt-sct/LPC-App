@@ -21,12 +21,6 @@ def transcrire():
 def images(filename):
     return send_from_directory('images', filename)
 
-if __name__ == '__main__':
-    # Assure-toi que l'encodage est correct (utile si variable PYTHONUTF8 non définie)
-    os.environ["PYTHONIOENCODING"] = "utf-8"
-    app.run(debug=True)
-
-import os
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
