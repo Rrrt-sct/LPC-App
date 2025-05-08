@@ -127,7 +127,8 @@
     document.getElementById("imageLine").innerHTML = "";
     document.getElementById("phoneticText").innerText = "";
 
-    const response = await fetch("http://127.0.0.1:5000/transcrire", {
+    const response = await fetch("https://https://lpc-app.onrender.com/transcrire", {
+
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ texte })
@@ -197,7 +198,8 @@
       container.style.margin = "4px";
 
       const imageElement = document.createElement("img");
-      imageElement.src = `images/${img}`;
+      imageElement.src = `https://lpc-app.onrender.com/images/${img}`;
+
       imageElement.style.height = "100px";
 
       const phonemeText = document.createElement("span");
