@@ -167,12 +167,12 @@
   phonemesList.forEach(p => {
     const btn = document.createElement("button");
     btn.innerHTML = `<strong>/${p.symbol}/</strong><br><small>${p.example}</small>`;
-    btn.style.padding = "6px 8px";
+    btn.style.padding = "9px 12px";
     btn.style.border = "1px solid #ccc";
-    btn.style.borderRadius = "4px";
+    btn.style.borderRadius = "6px";
     btn.style.background = "#f0f0f0";
     btn.style.cursor = "pointer";
-    btn.style.fontSize = "14px";
+    btn.style.fontSize = "21px";
     btn.style.color = "black";
     btn.onclick = () => insertAtCursor(document.getElementById("phoneticText"), p.symbol);
     panel.appendChild(btn);
