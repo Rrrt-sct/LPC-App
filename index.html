@@ -92,7 +92,50 @@
 <button onclick="majImagesDepuisTexte()">Mettre à jour les images</button>
     <div id="imageLine"></div>
   </div>
+<h3>Phonèmes disponibles</h3>
+<div id="phonemePanel" style="margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 8px;"></div>
 
+<script>
+  const phonemesList = [
+    { symbol: "a", example: "arbre" }, { symbol: "ə", example: "menuisi<strong>er<strong>" },
+    { symbol: "œ", example: "beurre" }, { symbol: "ø", example: "pneu" },
+    { symbol: "ɛ", example: "maison" }, { symbol: "e", example: "étirement" },
+    { symbol: "i", example: "radis" }, { symbol: "ɔ", example: "noble" },
+    { symbol: "o", example: "moineau" }, { symbol: "y", example: "bus" },
+    { symbol: "ɑ̃", example: "chant" }, { symbol: "œ̃", example: "parfum" },
+    { symbol: "ɔ̃", example: "champignon" }, { symbol: "u", example: "loup" },
+    { symbol: "j", example: "bien" }, { symbol: "w", example: "whisky" },
+    { symbol: "ɥ", example: "nuage" }, { symbol: "b", example: "banane" },
+    { symbol: "d", example: "dodo" }, { symbol: "ʃ", example: "chameau" },
+    { symbol: "f", example: "frite" }, { symbol: "ɡ", example: "gâteau" },
+    { symbol: "ʒ", example: "girafe" }, { symbol: "k", example: "carosse" },
+    { symbol: "l", example: "libre" }, { symbol: "m", example: "matelas" },
+    { symbol: "n", example: "âne" }, { symbol: "ɲ", example: "vigne" },
+    { symbol: "ŋ", example: "parking" }, { symbol: "p", example: "épée" },
+    { symbol: "ʁ", example: "mer" }, { symbol: "s", example: "asticot" },
+    { symbol: "t", example: "deltaplane" }, { symbol: "v", example: "avocat" },
+    { symbol: "z", example: "zen" }
+  ];
+
+  const panel = document.getElementById("phonemePanel");
+  phonemesList.forEach(p => {
+    const btn = document.createElement("button");
+    btn.innerHTML = `<strong>/${p.symbol}/</strong><br><small>${p.example}</small>`;
+    btn.style.padding = "6px 8px";
+    btn.style.border = "1px solid #ccc";
+    btn.style.borderRadius = "4px";
+    btn.style.background = "#f0f0f0";
+    btn.style.cursor = "pointer";
+    btn.style.fontSize = "14px";
+    btn.onclick = () => insertAtCursor(document.getElementById("phoneticText"), p.symbol);
+    panel.appendChild(btn);
+  });
+
+  function insertAtCursor(el, text) {
+    el.focus();
+    document.execCommand("insertText", false, text);
+  }
+</script>
   <script>
   const mapping = {
   "1": ["my", "me", "ty", "te", "fy", "fe", "mœ̃", "tœ̃", "fœ̃"],
