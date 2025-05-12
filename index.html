@@ -353,8 +353,16 @@ footer {
     });
   }
 </script>
- <footer style="text-align: center; margin-top: 40px; font-size: 14px; color: #665; margin-bottom: 80px;">
-  Contact : <a href="mailto:renaud.drieux@ac-aix-marseille.fr" style="color: #007BFF;">renaud.drieux@ac-aix-marseille.fr</a>
+<footer style="text-align: center; margin-top: 40px; font-size: 14px; color: #665;">
+  <a href="#" onclick="revealEmail()" style="color: #007BFF; text-decoration: none;">📩 Contact</a>
+  <span id="email" style="display:none;"> : <a href="mailto:renaud.drieux@ac-aix-marseille.fr">renaud.drieux@ac-aix-marseille.fr</a></span>
 </footer>
+
+<script>
+  function revealEmail() {
+    document.getElementById("email").style.display = "inline";
+  }
+</script>
+
 </body>
 </html>
